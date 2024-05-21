@@ -1,0 +1,28 @@
+{% extends 'bootstrap/navbar.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center mb-4">{{ page_title }}</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            {% for history_item in faculty_history %}
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        {% if history_item.image %}
+                            <img src="{{ history_item.image.url }}" class="img-fluid rounded-start" alt="{{ history_item.title }}">
+                        {% endif %}
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ history_item.title }}</h5>
+                            <p class="card-text">{{ history_item.text }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'bootstrap/navbar.html' %}
+
+{% block content %}
+    <title>{{ page_title }}</title>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center">{{ page_title }}</h1>
+
+        {% for info in placement %}
+            <div class="card my-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ info.title }}</h2>
+                    <p class="card-text">{{ info.text }}</p>
+                    {% if info.document %}
+                        <a href="{{ info.document.url }}" target="_blank" class="btn btn-primary"></a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+{% endblock %}

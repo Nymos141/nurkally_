@@ -1,0 +1,15 @@
+{% extends 'bootstrap/navbar.html' %}
+
+{% block content %}
+    <div class="content-container">
+        {% for info in research_w %}
+                <div style="float: left; margin-right: 10px;">
+                    <img src="{{ info.image.url }}" class="card-img-top" alt="{{ info.title }}" width="400" height="350">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ info.title }}</h5>
+                    <p class="card-text">{{ info.text }}</p>
+                </div>
+            </div>
+        {% endfor %}
+{% endblock %}

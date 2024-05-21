@@ -1,0 +1,27 @@
+{% extends 'bootstrap/navbar.html' %}
+
+<div class="container">
+    {% block content %}
+
+    <h2 class="text-center">{{ page_title }}</h2>
+    <div class="row">
+        {% for member in faculty_members %}
+        <div class="col-md-3 mb-4">
+            <a href="{% url 'professor_detail' member.id %}">
+                <div class="card" style="width: 250px;">
+                    <img src="{{ member.photo.url }}" class="card-img-top" alt="{{ member.name }}" style="height: 350px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ member.name }}</h5>
+                        <p class="card-text">Должность: {{ member.position }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% if forloop.counter2|divisibleby:4 or forloop.last %}
+    </div>
+    <div class="row">
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% endblock %}
+</div>

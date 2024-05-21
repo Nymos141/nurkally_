@@ -1,0 +1,21 @@
+{% extends 'bootstrap/navbar.html' %}
+
+
+<div class="container">
+    {% block content %}
+    <h2 class="text-center">{{ professor.name }}</h2>
+    <div class="card">
+        <img src="{{ professor.photo.url }}" class="card-img-top" alt="{{ professor.name }}" style="width:350px; height: 600px; object-fit: cover;">
+        <div class="card-body">
+            <h5 class="card-title">{{ professor.name }}</h5>
+            <p class="card-text">Должность: {{ professor.position }}</p>
+            <p class="card-text">Описание: {{ professor.description }}</p>
+            <p class="card-text">Квалификация: {{ professor.qualification }}</p>
+            <p class="card-text">Опыт работы: {{ professor.experience }}</p>
+            <p class="card-text">Электронная почта: {{ professor.contact }}</p>
+            <p class="card-text">Контакты: {{ professor.article_url }}</p>
+        </div>
+    </div>
+{% endblock %}
+</div>
+
